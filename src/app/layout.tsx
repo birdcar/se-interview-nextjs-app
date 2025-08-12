@@ -64,7 +64,14 @@ export default async function RootLayout({
                       </Flex>
 
                       <Flex flexGrow="1" align="center" justify="center">
-                        <main>{children}</main>
+                        <main
+                          style={{
+                            height: "90%",
+                            width: "90%",
+                          }}
+                        >
+                          {children}
+                        </main>
                       </Flex>
                     </Flex>
                   </Card>
