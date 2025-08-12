@@ -6,7 +6,13 @@ import { SignInButton } from "./components/sign-in-button";
 export default async function HomePage() {
   const { user } = await withAuth();
   return (
-    <Flex direction="column" align="center" gap="2">
+    <Flex
+      direction="column"
+      align="center"
+      gap="2"
+      justify="center"
+      style={{ height: "100%", width: "100%" }}
+    >
       {user ? (
         <>
           <Heading size="8">
