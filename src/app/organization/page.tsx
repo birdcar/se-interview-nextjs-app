@@ -23,12 +23,11 @@ export default async function OrganizationPage() {
   // Generate a stable auth token specifically for the WorkOsWidgets.
   //
   // This specific getToken requires the scopes to be passed.
-  // const widgetToken = await workos.widgets.getToken({
-  //   userId: user.id,
-  //   organizationId,
-  //   scopes: ["widgets:users-table:manage"],
-  // });
-  const widgetToken = undefined;
+  const widgetToken = await workos.widgets.getToken({
+    userId: user.id,
+    organizationId,
+    scopes: ["widgets:users-table:manage"],
+  });
 
   // Show an error page if there's a problem generating a widget token.
   if (!widgetToken) {
