@@ -1,6 +1,6 @@
 // Import the base CSS styles for the radix-ui components.
 import "@radix-ui/themes/styles.css";
-import '@workos-inc/widgets/styles.css';
+import "@workos-inc/widgets/styles.css";
 
 import type { Metadata } from "next";
 import NextLink from "next/link";
@@ -11,17 +11,19 @@ import {
   AuthKitProvider,
   Impersonation,
 } from "@workos-inc/authkit-nextjs/components";
+import { withAuth } from "@workos-inc/authkit-nextjs";
 
 export const metadata: Metadata = {
   title: "Example AuthKit Authenticated App",
   description: "Example Next.js application demonstrating how to use AuthKit.",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const { user, role } = await withAuth();
   return (
     <html lang="en">
       <body style={{ padding: 0, margin: 0 }}>
@@ -48,9 +50,13 @@ export default function RootLayout({
                               <NextLink href="/account">Account</NextLink>
                             </Button>
 
-                            <Button asChild variant="soft">
-                              <NextLink href="/organization">Organization</NextLink>
-                            </Button>
+                            {user && role === "admin" && (
+                              <Button asChild variant="soft">
+                                <NextLink href="/organization">
+                                  Organization
+                                </NextLink>
+                              </Button>
+                            )}
                           </Flex>
 
                           <SignInButton />
