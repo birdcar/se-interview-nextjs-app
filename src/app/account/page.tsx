@@ -1,6 +1,6 @@
 import { redirect } from "next/navigation";
 import { withAuth } from "@workos-inc/authkit-nextjs";
-import { Text, Heading, TextField, Flex, Box } from "@radix-ui/themes";
+import { Heading, Flex } from "@radix-ui/themes";
 import {
   WorkOsWidgets,
   UserProfile,
@@ -8,6 +8,7 @@ import {
   UserSessions,
 } from "@workos-inc/widgets";
 import { workos } from "../_lib/workos";
+import { WidgetRequestError } from "../components/widget-request-error";
 
 export default async function AccountPage() {
   const { user, organizationId, sessionId } = await withAuth({
@@ -22,6 +23,10 @@ export default async function AccountPage() {
     userId: user.id,
     organizationId,
   });
+
+  if (!widgetToken) {
+    return <WidgetRequestError />;
+  }
 
   return (
     <WorkOsWidgets style={{ height: "100%", width: "100%" }}>

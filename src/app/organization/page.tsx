@@ -1,8 +1,7 @@
 import { redirect } from "next/navigation";
 import { withAuth } from "@workos-inc/authkit-nextjs";
 import { UsersManagement, WorkOsWidgets } from "@workos-inc/widgets";
-import { Box, Heading, Text } from "@radix-ui/themes";
-import { SignInButton } from "../components/sign-in-button";
+import { WidgetRequestError } from "../components/widget-request-error";
 import { workos } from "@/app/_lib/workos";
 
 export default async function OrganizationPage() {
@@ -31,17 +30,7 @@ export default async function OrganizationPage() {
 
   // Show an error page if there's a problem generating a widget token.
   if (!widgetToken) {
-    return (
-      <>
-        <Heading size="5" color="red">
-          Error fetching data
-        </Heading>
-        <Text>
-          An unknown error occurred. If the problem continues, contact the site
-          owner.
-        </Text>
-      </>
-    );
+    return <WidgetRequestError />;
   }
 
   return (
