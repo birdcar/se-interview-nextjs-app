@@ -1,7 +1,7 @@
 import NextLink from "next/link";
 import { withAuth } from "@workos-inc/authkit-nextjs";
 import { Button, Flex, Heading, Text } from "@radix-ui/themes";
-import { SignInButton } from "./components/sign-in-button";
+import { SignInButton } from "@/app/_components/sign-in-button";
 
 export default async function HomePage() {
   const { user } = await withAuth();

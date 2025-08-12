@@ -7,8 +7,8 @@ import {
   UserSecurity,
   UserSessions,
 } from "@workos-inc/widgets";
-import { workos } from "../_lib/workos";
-import { WidgetRequestError } from "../components/widget-request-error";
+import { workos } from "@/app/_lib/workos";
+import { WidgetRequestError } from "@/app/_components/widget-request-error";
 
 export default async function AccountPage() {
   const { user, organizationId, sessionId } = await withAuth({

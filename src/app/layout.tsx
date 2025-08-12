@@ -5,8 +5,8 @@ import "@workos-inc/widgets/styles.css";
 import type { Metadata } from "next";
 import NextLink from "next/link";
 import { Theme, Card, Container, Flex, Button, Box } from "@radix-ui/themes";
-import { Footer } from "./components/footer";
-import { SignInButton } from "./components/sign-in-button";
+import { Footer } from "./_components/footer";
+import { SignInButton } from "@/app/_components/sign-in-button";
 import {
   AuthKitProvider,
   Impersonation,

@@ -1,7 +1,7 @@
 import { redirect } from "next/navigation";
 import { withAuth } from "@workos-inc/authkit-nextjs";
 import { UsersManagement, WorkOsWidgets } from "@workos-inc/widgets";
-import { WidgetRequestError } from "../components/widget-request-error";
+import { WidgetRequestError } from "@/app/_components/widget-request-error";
 import { workos } from "@/app/_lib/workos";
 
 export default async function OrganizationPage() {
