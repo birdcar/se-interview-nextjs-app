@@ -15,6 +15,15 @@ export default async function AccountPage() {
     ensureSignedIn: true,
   });
 
+  // Account page will be broken if the user does not belong to
+  // an organization. Given my (arbitrary) decision to iterate on
+  // the account page rather than generate a new "settings" page,
+  // I made the choice to redirect the user to the main page in
+  // this case.
+  //
+  // In a real world application, assuming I'd have to support non-
+  // org users, there would need to be additional work here to support
+  // that.
   if (!organizationId) {
     redirect("/");
   }

@@ -12,7 +12,7 @@ Once I'd reviewed those docs and reconfirmed the challenge and evaluation criter
 2. The organization page (where I would be adding the user management widget) should be available only to Admin's since there doesn't appear to be a "readonly" prop that would allow non-admin users to access the page.
 3. Assuming implementation was as straightforward as it appeared, I would be replacing the "Account" page with the WorkOS widgets since they provided additional functionality, even though they removed visibility into the role and permission fields.
 
-From there, the implementation process was extremely straightforward. So much so, in fact, that I burned some time triple checking that server components would count as "the backend" for the purposes of Task 3 since it seemed easy.
+From there, the implementation process was extremely straightforward. So much so, in fact, that I burned some time triple checking that server components would count as "the backend" for the purposes of Task 3 since it seemed suspiciously simple.
 
 Finally, for cleanup I decided to extract the workos client into a `_lib` directory for maintainability, prepended an underscore to the `components` directory to make it an [App Router private folder](https://nextjs.org/docs/app/getting-started/project-structure#private-folders), and extracted an error component to handle the edge case where the request to get a widget token might fail.
 
